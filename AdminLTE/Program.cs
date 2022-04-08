@@ -23,6 +23,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Apoyos}/{action=Listar}/{id?}");
+    pattern: "{controller=Habitantes}/{action=Crear}/{id?}");
 
 app.Run();
