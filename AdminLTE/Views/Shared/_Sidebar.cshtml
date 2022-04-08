@@ -6,7 +6,7 @@
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
-    <!-- Sidebar -->
+    <!-- Inicio Sidebar -->
     <div class="sidebar">
         <!-- Emma Miranda -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -44,47 +44,83 @@
             </div>
         </div>
 
-        <!-- Sidebar Menu -->
+        <!-- Inicio Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                <!-- Inicio Charts -->
+                <!-- Inicio Tablas -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Tablas
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <!-- Menu Tablas Arbol -->
+                    <ul class="nav nav-treeview">
+                        <!-- Item Habitantes -->
+                        <li class="nav-item">
+                            <a href="pages/tables/simple.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Habitantes</p>
+                            </a>
+                        </li>
+                        <!-- Item Apoyos -->
+                        <li class="nav-item">
+                            <a asp-controller="Apoyos" asp-action="Listar" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Apoyos</p>
+                            </a>
+                        </li>
+                        <!-- Item Beneficios -->
+                        <li class="nav-item">
+                            <a href="pages/tables/data.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Beneficios</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- Fin Tablas -->
+                <!-- Inicio Reportes y Estadisticas -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Charts
+                            Reportes y Estadísticas
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
 
-                    <!-- Menu Charts Arbol -->
+                    <!-- Menu Reportes y Estadisticas Arbol -->
                     <ul class="nav nav-treeview">
-                        <!-- Item ChartJS -->
+                        <!-- Item Reportes -->
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Charts" asp-action="Chartjs">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                                <p>Reportes</p>
                             </a>
                         </li>
-                        <!-- Item Flot -->
+                        <!-- Item Estadisticas -->
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Charts" asp-action="Flot">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Flot</p>
+                                <p>Estadísticas</p>
                             </a>
                         </li>
 
                     </ul>
 
                 </li>
-                <!-- Fin Charts -->
+                <!-- Fin Reportes y Estadísticas -->
                 <!-- Inicio Forms -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
-                            Forms
+                            Pruebas Items
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -92,58 +128,29 @@
                     <ul class="nav nav-treeview">
                         <!-- Item Validation -->
                         <li class="nav-item">
-                            <a href="pages/forms/validation.html" class="nav-link">
+                            <a class="nav-link" asp-controller="Forms" asp-action="Validation">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Validation</p>
+                                <p>Pruebas</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <!-- Fin Forms -->
-                <!-- Inicio Tables -->
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Tables
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <!-- Menu Tables Arbol -->
-                    <ul class="nav nav-treeview">
-                        <!-- Item Simple Tables -->
-                        <li class="nav-item">
-                            <a href="pages/tables/simple.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Simple Tables</p>
-                            </a>
-                        </li>
-                        <!-- Item Data Tables -->
-                        <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Tables</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-                <!-- Fin Tables -->
-
-                <!-- Calendario -->
+                <!-- Inicio Calendario -->
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Calendar" asp-action="Index">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
-                            Calendar
+                            Calendario
                         </p>
                     </a>
                 </li>
+                <!-- Fin Calendario -->
 
 
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
+        <!-- Fin Sidebar Menu -->
     </div>
-    <!-- /.sidebar -->
+    <!-- Fin Sidebar -->
 </aside>

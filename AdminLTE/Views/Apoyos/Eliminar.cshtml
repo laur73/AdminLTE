@@ -1,0 +1,57 @@
+﻿@model ApoyoViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Apoyo";
+}
+
+<div class="content-wrapper">
+
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Eliminando Apoyo @Model.Nombre</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Apoyos</a></li>
+                        <li class="breadcrumb-item active">Eliminar Apoyo</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="card card-danger">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Apoyos</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form asp-controller="Apoyos" asp-action="Eliminar">
+                            <input asp-for="IdApoyo" type="hidden" class="form-control">
+
+                            <div class="alert alert-danger alert-dismissible col-md-4">
+                                <h5><i class="icon fas fa-ban"></i>Advertencia</h5>
+                                ¿Está seguro de eliminar el apoyo: @Model.Nombre?
+                            </div>
+
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <a class="btn btn-secondary" asp-controller="Apoyos" asp-action="Listar">Cancelar </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

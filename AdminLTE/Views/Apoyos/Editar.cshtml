@@ -1,0 +1,76 @@
+﻿@model ApoyoViewModel
+
+@{
+    ViewData["Title"] = "Editar Apoyo";
+}
+
+<div class="content-wrapper">
+
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Editando Apoyo: @Model.Nombre</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Apoyos</a></li>
+                        <li class="breadcrumb-item active">Editar Apoyo</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="card card-warning">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Apoyos</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form asp-controller="Apoyos" asp-action="Editar">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input asp-for="IdApoyo" type="hidden" class="form-control">
+                            <!-- Inicio Input Nombre -->
+                            <div class="form-group">
+                                <label>Nombre: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                                    </div>
+                                    <input asp-for="Nombre" type="text" class="form-control" placeholder="Escriba el nombre del apoyo...">
+                                </div>
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Nombre -->
+                            <!-- Inicio Input Descripcion -->
+                            <div class="form-group">
+                                <label>Descripción: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                                    </div>
+                                    <input asp-for="Descripcion" type="text" class="form-control" placeholder="Escriba una descripción del apoyo...">
+                                </div>
+                                <span asp-validation-for="Descripcion" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Descripcion -->
+                            <button type="submit" class="btn btn-warning">Editar</button>
+                            <a class="btn btn-secondary" asp-controller="Apoyos" asp-action="Listar">Cancelar </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
