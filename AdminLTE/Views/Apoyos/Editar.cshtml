@@ -64,6 +64,18 @@
                                 <span asp-validation-for="Descripcion" class="text-danger"></span>
                             </div>
                             <!-- Fin Input Descripcion -->
+                            <!-- Inicio Input Cantidad -->
+                            <div class="form-group">
+                                <label asp-for="Cantidad"></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                                    </div>
+                                    <input asp-for="Cantidad" type="number" min="0" class="form-control" placeholder="Digite una cantidad del apoyo...">
+                                </div>
+                                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Cantidad -->
                             <button type="submit" class="btn btn-warning">Editar</button>
                             <a class="btn btn-secondary" asp-controller="Apoyos" asp-action="Listar">Cancelar </a>
                         </form>

@@ -1,4 +1,4 @@
-﻿@model List<ApoyoViewModel>
+﻿@model IEnumerable<ApoyoViewModel>
 
 @{
     ViewData["Title"] = "Apoyos";
@@ -36,19 +36,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Lista de Apoyos</h3>
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -57,6 +44,7 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Descripción</th>
+                                        <th>Cantidad</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -67,6 +55,7 @@
                                         <tr>
                                             <td>@apoyo.Nombre</td>
                                             <td>@apoyo.Descripcion</td>
+                                            <td>@apoyo.Cantidad</td>
                                             <td>
                                                 <a class="btn btn-warning" asp-controller="Apoyos" asp-action="Editar" asp-route-IdApoyo="@apoyo.IdApoyo">
                                                     <i class="bi bi-pencil-square"></i>
