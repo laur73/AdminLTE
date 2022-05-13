@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<IRepositorioApoyos, RepositorioApoyos>();
+builder.Services.AddTransient<IRepositorioHabitantes, RepositorioHabitantes>();
 
 var app = builder.Build();
 
@@ -26,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Apoyos}/{action=Listar}/{id?}");
+    pattern: "{controller=Habitantes}/{action=Listar}/{id?}");
 
 app.Run();
