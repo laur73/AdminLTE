@@ -92,7 +92,5 @@ namespace AdminLTE.Repositorios
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync(@"Apoyos_Eliminar", new { IdApoyo }, commandType: System.Data.CommandType.StoredProcedure);
         }
-
-
     }
 }

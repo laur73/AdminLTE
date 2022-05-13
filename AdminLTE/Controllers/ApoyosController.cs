@@ -126,7 +126,5 @@ namespace AdminLTE.Controllers
             return RedirectToAction("Listar");
         }
 
-
-
     }
 }
