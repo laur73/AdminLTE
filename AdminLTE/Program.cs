@@ -1,8 +1,11 @@
+using AdminLTE.Repositorios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddTransient<IRepositorioApoyos, RepositorioApoyos>();
 
 var app = builder.Build();
 
@@ -23,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Habitantes}/{action=Crear}/{id?}");
+    pattern: "{controller=Apoyos}/{action=Listar}/{id?}");
 
 app.Run();
