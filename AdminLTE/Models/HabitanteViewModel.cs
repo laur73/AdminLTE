@@ -29,14 +29,14 @@ namespace AdminLTE.Models
         [Display(Name = "Fecha Nacimiento")]
         [DataType(DataType.DateTime)]
         public DateTime FechaNac { get; set; }
-        
-        [StringLength(maximumLength: 100)]
-        [Display(Name = "Correo Electrónico")]
-        public string Email { get; set; }
+
+        [StringLength(maximumLength: 6)]
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        public string Sexo { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
-        [StringLength(maximumLength:14)]
-        [Display(Name ="Teléfono")]
+        [StringLength(maximumLength: 14)]
+        [Display(Name = "Teléfono")]
         public string Telefono { get; set; }
     }
 }
