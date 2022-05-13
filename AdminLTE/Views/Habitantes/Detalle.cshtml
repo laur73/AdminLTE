@@ -1,0 +1,156 @@
+﻿@model HabitanteViewModel
+
+@{
+    ViewData["Title"] = "Detalles Habitante";
+}
+
+<div class="content-wrapper">
+
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Viendo Detalles del Habitante: @Model.Nombre</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Habitantes</a></li>
+                        <li class="breadcrumb-item active">Detalles Habitante</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="card card-info">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Habitantes</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form>
+                            <input asp-for="IdHabitante" type="hidden" class="form-control">
+                            <!-- Inicio Input Nombre -->
+                            <div class="form-group">
+                                <label>Nombre(s): </label>
+                                <p class="text-muted">
+                                    @Model.Nombre
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Nombre -->
+                            <!-- Inicio Input Apellido Paterno -->
+                            <div class="form-group">
+                                <label>Apellido Paterno: </label>
+                                <p class="text-muted">
+                                    @Model.ApePat
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Apellido Paterno -->
+                            <!-- Inicio Input Apellido Materno -->
+                            <div class="form-group">
+                                <label>Apellido Materno: </label>
+                                <p class="text-muted">
+                                    @Model.ApeMat
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Apellido Materno -->
+                            <!-- Inicio Input Sexo-->
+                            <div class="form-group">
+                                <label>Sexo: </label>
+                                <p class="text-muted">
+                                    @Model.Sexo
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Sexo -->
+                            <!-- Inicio Input Direccion -->
+                            <div class="form-group">
+                                <label>Domicilio: </label>
+                                <p class="text-muted">
+                                    @Model.Direccion
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Direccion -->
+                            <!-- Inicio Input Fecha Nacimiento -->
+                            <div class="form-group">
+                                <label>Fecha Nacimiento: </label>
+                                <p class="text-muted">
+                                    @Model.FechaNac.ToString("dd/MM/yyyy")
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Fecha Nacimiento -->
+                            <!-- Inicio Input Telefono -->
+                            <div class="form-group">
+                                <label>Teléfono: </label>
+                                <p class="text-muted">
+                                    @Model.Telefono
+                                </p>
+
+                                <hr>
+                            </div>
+                            <!-- Fin Input Telefono -->
+                            <a class="btn btn-secondary" asp-controller="Habitantes" asp-action="Listar">Volver </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- InputMask -->
+    <script src="../../plugins/moment/moment.min.js"></script>
+    <script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+
+
+
+    <!-- Page specific script -->
+    <script>
+        $(function() {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+
+            //Datemask yy/mm/dd
+            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+            //Datemask2 dd/mm/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+            //Datemask2 dd/mm/yyyy
+            $('#telephone').inputmask('(999) 999-9999', { 'placeholder': '(999) 999-9999' })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+
+        })
+
+    </script>
+
+</div>
