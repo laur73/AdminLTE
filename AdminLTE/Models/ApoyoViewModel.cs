@@ -19,7 +19,7 @@ namespace AdminLTE.Models
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
-        [Range (minimum:0, maximum:1000, ErrorMessage ="El valor debe estar entre {1} y {2}")]
+        [Range (minimum:0, maximum:1000, ErrorMessage ="La Cantidad debe ser mayor a {1}")]
         public int Cantidad { get; set; }
     }
 }

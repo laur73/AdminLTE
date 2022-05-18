@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<IRepositorioApoyos, RepositorioApoyos>();
 builder.Services.AddTransient<IRepositorioHabitantes, RepositorioHabitantes>();
+builder.Services.AddTransient<IRepositorioBeneficios, RepositorioBeneficios>();
 
 var app = builder.Build();
 
@@ -27,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Habitantes}/{action=Listar}/{id?}");
+    pattern: "{controller=Beneficios}/{action=Listar}/{id?}");
 
 app.Run();

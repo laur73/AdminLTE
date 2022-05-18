@@ -39,39 +39,48 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Cantidad</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach (var apoyo in Model)
-                                    {
+                            @if (Model.Count() == 0)
+                            {
+                                <div class="card-header">
+                                    <h3 class="card-title">No hay datos para mostrar</h3>
+                                </div>
+                            }
+                            else
+                            {
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
                                         <tr>
-                                            <td>@apoyo.Nombre</td>
-                                            <td>@apoyo.Descripcion</td>
-                                            <td>@apoyo.Cantidad</td>
-                                            <td>
-                                                <a class="btn btn-warning" asp-controller="Apoyos" asp-action="Editar" asp-route-IdApoyo="@apoyo.IdApoyo">
-                                                    <i class="bi bi-pencil-square"></i>
-                                                    Editar
-                                                </a>
-
-                                                <a class="btn btn-danger" asp-controller="Apoyos" asp-action="Eliminar" asp-route-IdApoyo="@apoyo.IdApoyo">
-                                                    <i class="bi bi-trash-fill"></i>
-                                                    Eliminar
-                                                </a>
-                                            </td>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th>Cantidad</th>
+                                            <th>Acciones</th>
                                         </tr>
-                                    }
-                                </tbody>
+                                    </thead>
 
-                            </table>
+                                    <tbody>
+                                        @foreach (var apoyo in Model)
+                                        {
+                                            <tr>
+                                                <td>@apoyo.Nombre</td>
+                                                <td>@apoyo.Descripcion</td>
+                                                <td>@apoyo.Cantidad</td>
+                                                <td>
+                                                    <a class="btn btn-warning" asp-controller="Apoyos" asp-action="Editar" asp-route-IdApoyo="@apoyo.IdApoyo">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                        Editar
+                                                    </a>
+
+                                                    <a class="btn btn-danger" asp-controller="Apoyos" asp-action="Eliminar" asp-route-IdApoyo="@apoyo.IdApoyo">
+                                                        <i class="bi bi-trash-fill"></i>
+                                                        Eliminar
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            }
 
                         </div>
                         <!-- /.card-body -->

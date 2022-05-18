@@ -1,0 +1,151 @@
+﻿@model BeneficioCreacionViewModel
+
+@{
+    ViewData["Title"] = "Crear Beneficio";
+}
+
+<div class="content-wrapper">
+
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Crear Nuevo Beneficio</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Beneficios</a></li>
+                        <li class="breadcrumb-item active">Crear Beneficio</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="card card-success">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Beneficios</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form asp-controller="Beneficios" asp-action="Crear">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <!-- Inicio Input Habitante -->
+                            <div class="form-group">
+                                <label>Habitante: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    </div>
+                                    @*asp-items → es el IEnumerable del SelectListItem*@
+                                    @*Por eso estabamos obligados a mapear de un IEnumerable<Modelo>*@
+                                    @*A un IEnumerable<SelectListItem>*@
+                                    <select asp-for="IdHabitante" asp-items="Model.Habitantes" class="form-select"></select>
+                                </div>
+                                <span asp-validation-for="IdHabitante" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Habitante -->
+                            <!-- Inicio Input Apoyo -->
+                            <div class="form-group">
+                                <label>Apoyo: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    </div>
+                                    <select asp-for="IdApoyo" asp-items="Model.Apoyos" class="form-select"></select>
+                                </div>
+                                <span asp-validation-for="IdApoyo" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Apoyo -->
+                            <!-- Inicio Input Cantidad -->
+                            <div class="form-group">
+                                <label>Cantidad:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-123"></i></span>
+                                    </div>
+                                    <input asp-for="Cantidad" type="number" class="form-control" placeholder="Digite una cantidad del apoyo...">
+                                </div>
+                                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Cantidad -->
+                            <!-- Inicio Input Estado-->
+                            <div class="form-group">
+                                <label>Estado: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-exclamation-lg"></i></span>
+                                    </div>
+                                    @*Con la propiedad del Html pdemos obtener el Enum de Estado*@
+                                    <select asp-for="IdEstado" asp-items="Html.GetEnumSelectList<Estado>()" class="form-select"></select>
+                                </div>
+                                <span asp-validation-for="IdEstado" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Estado -->
+                            <!-- Inicio Input Fecha  -->
+                            <div class="form-group">
+                                <label>Fecha: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input asp-for="Fecha" type="text" class="form-control" data-inputmask-alias="datetime"
+                                           data-inputmask-inputformat="dd/mm/yyyy" data-mask placeholder="Escriba la fecha de nacimiento...">
+                                </div>
+                                <span asp-validation-for="Fecha" class="text-danger"></span>
+                            </div>
+                            <!-- Fin Input Fecha Nacimiento -->
+                            <button type="submit" class="btn btn-success">Crear</button>
+                            <a class="btn btn-secondary" asp-controller="Beneficios" asp-action="Listar">Cancelar </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- InputMask -->
+        <script src="../../plugins/moment/moment.min.js"></script>
+        <script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
+
+
+
+        <!-- Page specific script -->
+        <script>
+            $(function() {
+                //Initialize Select2 Elements
+                $('.select2').select2()
+                //Initialize Select2 Elements
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
+                //Datemask yy/mm/dd
+                $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+                //Datemask2 dd/mm/yyyy
+                $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+                //Datemask2 dd/mm/yyyy
+                $('#telephone').inputmask('(999) 999-9999', { 'placeholder': '(999) 999-9999' })
+                //Money Euro
+                $('[data-mask]').inputmask()
+            })
+        </script>
+
+    </div>

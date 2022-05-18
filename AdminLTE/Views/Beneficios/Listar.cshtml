@@ -1,7 +1,7 @@
-﻿@model IEnumerable<HabitanteViewModel>
+﻿@model IEnumerable<BeneficioViewModel>
 
 @{
-    ViewData["Title"] = "Habitantes";
+    ViewData["Title"] = "Beneficios";
 }
 
 <div class="content-wrapper">
@@ -10,14 +10,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Habitantes del Municipio de Chignautla</h1>
+                    <h1 class="m-0">Beneficios Asignados y Entregados</h1>
                     <br>
-                    <a class="btn btn-success" asp-controller="Habitantes" asp-action="Crear">Crear nuevo</a>
+                    <a class="btn btn-success" asp-controller="Beneficios" asp-action="Crear">Crear nuevo</a>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Habitantes</a></li>
+                        <li class="breadcrumb-item"><a href="#">Beneficios</a></li>
                         <li class="breadcrumb-item active">Inicio</li>
                     </ol>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Lista de Habitantes</h3>
+                            <h3 class="card-title">Lista de Beneficios</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -50,39 +50,31 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>Nombre(s)</th>
-                                            <th>Apellido Paterno</th>
-                                            <th>Apellido Materno</th>
-                                            <th>Sexo</th>
-                                            @*<th>Dirección</th>*@
-                                            @*<th>Fecha Nacimiento</th>*@
-                                            <th>Teléfono</th>
+                                            <th>Habitante</th>
+                                            <th>Apoyo</th>
+                                            <th>Cantidad</th>
+                                            <th>Estado</th>
+                                            <th>Fecha</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        @foreach (var habitante in Model)
+                                        @foreach (var beneficio in Model)
                                         {
                                             <tr>
-                                                <td>@habitante.Nombre</td>
-                                                <td>@habitante.ApePat</td>
-                                                <td>@habitante.ApeMat</td>
-                                                <td>@habitante.Sexo</td>
-                                                @*<td>@habitante.Direccion</td>*@
-                                                @*<td>@habitante.FechaNac.ToString("dd/MM/yyyy")</td>*@
-                                                <td>@habitante.Telefono</td>
+                                                <td>@beneficio.Habitante</td>
+                                                <td>@beneficio.Apoyo</td>
+                                                <td>@beneficio.Cantidad</td>
+                                                <td>@beneficio.Estado</td>
+                                                <td>@beneficio.Fecha.ToString("dd/MM/yyyy")</td>
                                                 <td>
-                                                    <a class="btn btn-info" asp-controller="Habitantes" asp-action="Detalle" asp-route-IdHabitante="@habitante.IdHabitante">
-                                                        <i class="bi bi-info-lg"></i>
-                                                        Detalles
-                                                    </a>
-                                                    <a class="btn btn-warning" asp-controller="Habitantes" asp-action="Editar" asp-route-IdHabitante="@habitante.IdHabitante">
+                                                    <a class="btn btn-warning" asp-controller="Beneficios" asp-action="Editar" asp-route-IdBeneficio="@beneficio.IdBeneficio">
                                                         <i class="bi bi-pencil-square"></i>
                                                         Editar
                                                     </a>
 
-                                                    <a class="btn btn-danger" asp-controller="Habitantes" asp-action="Eliminar" asp-route-IdHabitante="@habitante.IdHabitante">
+                                                    <a class="btn btn-danger" asp-controller="Beneficios" asp-action="Eliminar" asp-route-IdBeneficio="@beneficio.IdBeneficio">
                                                         <i class="bi bi-trash-fill"></i>
                                                         Eliminar
                                                     </a>
