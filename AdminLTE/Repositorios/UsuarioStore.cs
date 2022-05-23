@@ -25,7 +25,7 @@ namespace AdminLTE.Repositorios
 
         public void Dispose()
         {
-            
+
         }
 
         public async Task<UsuarioViewModel> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)

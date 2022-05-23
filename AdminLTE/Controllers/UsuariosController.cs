@@ -45,7 +45,7 @@ namespace AdminLTE.Controllers
 
             if (resultado.Succeeded)
             {
-                await signInManager.SignInAsync(usuario, isPersistent: true);
+                await signInManager.SignInAsync(usuario,isPersistent: false);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -66,8 +66,8 @@ namespace AdminLTE.Controllers
             return View();
         }
 
-        [HttpPost]
         [AllowAnonymous]
+        [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel login)
         {
             if (!ModelState.IsValid)
@@ -89,14 +89,11 @@ namespace AdminLTE.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);
             return RedirectToAction("Index", "Home");
         }
-
-
     }
 }

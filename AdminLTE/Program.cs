@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 var politicaUsuariosAutenticados = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 
 builder.Services.AddControllersWithViews(options =>
@@ -20,9 +21,10 @@ builder.Services.AddTransient<IRepositorioHabitantes, RepositorioHabitantes>();
 builder.Services.AddTransient<IRepositorioBeneficios, RepositorioBeneficios>();
 builder.Services.AddTransient<IRepositorioEstadisticas, RepositorioEstadisticas>();
 builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
-builder.Services.AddTransient<IUserStore<UsuarioViewModel>,UsuarioStore>();
+
+builder.Services.AddTransient<IUserStore<UsuarioViewModel>, UsuarioStore>();
+
 builder.Services.AddTransient<SignInManager<UsuarioViewModel>>();
-builder.Services.AddIdentityCore<UsuarioViewModel>();
 
 builder.Services.AddIdentityCore<UsuarioViewModel>(options =>
 {
@@ -42,6 +44,9 @@ builder.Services.AddAuthentication(options =>
     options.LoginPath = "/usuarios/login";
 });
 
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -53,9 +58,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseAuthentication();
@@ -64,6 +67,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Habitantes}/{action=Listar}/{id?}");
 
 app.Run();
