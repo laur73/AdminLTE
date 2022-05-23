@@ -1,7 +1,7 @@
-﻿@model HabitanteViewModel
+﻿@model EstadisticasViewModel
 
 @{
-    ViewData["Title"] = "Detalles Habitante";
+    ViewData["Title"] = "Estadísticas";
 }
 
 <div class="content-wrapper">
@@ -39,7 +39,7 @@
                         <div class="form-group">
                             <label>Habitantes Registrados: </label>
                             <p class="text-muted">
-                                274
+                                @Model.Habitantes
                             </p>
 
                             <hr>
@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label>Apoyos Disponibles: </label>
                             <p class="text-muted">
-                                300
+                                @Model.Apoyos
                             </p>
 
                             <hr>
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label>Apoyos Asignados: </label>
                             <p class="text-muted">
-                                210
+                                @Model.ApoyosA
                             </p>
 
                             <hr>
@@ -63,16 +63,7 @@
                         <div class="form-group">
                             <label>Apoyos Entregados: </label>
                             <p class="text-muted">
-                                64
-                            </p>
-
-                            <hr>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Apoyos Entregados: </label>
-                            <p class="text-muted">
-                                64
+                                @Model.ApoyosE
                             </p>
 
                             <hr>

@@ -1,12 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AdminLTE.Models;
+using AdminLTE.Repositorios;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AdminLTE.Controllers
 {
     public class EstadisticasController : Controller
     {
-        public IActionResult Resumen()
+        private readonly IRepositorioEstadisticas repositorioEstadisticas;
+
+        public EstadisticasController(IRepositorioEstadisticas repositorioEstadisticas)
         {
-            return View();
+            this.repositorioEstadisticas = repositorioEstadisticas;
+        }
+
+        public async Task <IActionResult> Resumen(EstadisticasViewModel estadisticas)
+        {
+            var totalHabitantes = await repositorioEstadisticas.ContarHabitantes();
+            var totalApoyos = await repositorioEstadisticas.ContarApoyos();
+            var totalApoyosAsignados = await repositorioEstadisticas.ContarApoyosAsignados();
+            var totalApoyosEntregados = await repositorioEstadisticas.ContarApoyosEntregados();
+
+            var modelo = new EstadisticasViewModel
+            {
+                Habitantes = totalHabitantes,
+                Apoyos = totalApoyos,
+                ApoyosA = totalApoyosAsignados,
+                ApoyosE = totalApoyosEntregados
+            };
+
+            return View(modelo);
         }
     }
 }
