@@ -8,6 +8,7 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<IRepositorioApoyos, RepositorioApoyos>();
 builder.Services.AddTransient<IRepositorioHabitantes, RepositorioHabitantes>();
 builder.Services.AddTransient<IRepositorioBeneficios, RepositorioBeneficios>();
+builder.Services.AddTransient<IRepositorioEstadisticas, RepositorioEstadisticas>();
 
 var app = builder.Build();
 
@@ -28,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Apoyos}/{action=Listar}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
