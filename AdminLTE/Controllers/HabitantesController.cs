@@ -18,7 +18,7 @@ namespace AdminLTE.Controllers
         //Como trabajamos con programacion asincrona, los metodos para postear la informacion
         //Tambien debe ser asincrona
 
-        //Para mostrar la vista del listado de los apoyos
+        //Para mostrar la vista del listado de los habitantes
         [HttpGet]
         public async Task<IActionResult> Listar()
         {

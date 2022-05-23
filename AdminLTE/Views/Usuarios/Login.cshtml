@@ -1,0 +1,59 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Tilte"] = "Iniciar Sesión";
+}
+
+<div class="register-box">
+    <div class="register-logo">
+        <b>Iniciar Sesión</b>
+    </div>
+
+    <div class="card">
+        <div class="card-body register-card-body">
+
+            <form asp-controller="Usuarios" asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+
+
+                <div class="input-group mb-3">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+                <div class="input-group mb-3">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Contraseña">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <div class="icheck-primary mb-3">
+                    <input class="form-check-input" type="checkbox" asp-for="Recuerdame" />
+                    <label class="form-check-label" asp-for="Recuerdame"></label>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-block btn-primary" type="submit">Iniciar Sesión</button>
+                </div>
+                <br />
+
+            </form>
+        </div>
+        <!-- /.form-box -->
+    </div>
+    <!-- /.card -->
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
