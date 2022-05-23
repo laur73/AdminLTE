@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AdminLTE.Controllers
 {
-    public class BeneficiosController : Controller
+    public class AsignacionesController : Controller
     {
         private readonly IRepositorioBeneficios repositorioBeneficios;
         private readonly IRepositorioHabitantes repositorioHabitantes;
@@ -14,7 +14,7 @@ namespace AdminLTE.Controllers
         //En este constructor cargamos los repositorios que vamos a necesitar
         //Para este caso también necesitaremos de habitantes y apoyos para poder cargar
         //el listado de los items de cada coleccion
-        public BeneficiosController(IRepositorioBeneficios repositorioBeneficios, IRepositorioHabitantes repositorioHabitantes,
+        public AsignacionesController(IRepositorioBeneficios repositorioBeneficios, IRepositorioHabitantes repositorioHabitantes,
             IRepositorioApoyos repositorioApoyos)
         {
             this.repositorioBeneficios = repositorioBeneficios;

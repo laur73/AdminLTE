@@ -1,7 +1,7 @@
 ﻿@model BeneficioViewModel
 
 @{
-    ViewData["Title"] = "Eliminar Habitante";
+    ViewData["Title"] = "Eliminar Asignación";
 }
 
 <div class="content-wrapper">
@@ -10,13 +10,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Eliminando Beneficio @Model.Apoyo</h1>
+                    <h1 class="m-0">Eliminando Asignación @Model.Apoyo</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Beneficios</a></li>
-                        <li class="breadcrumb-item active">Eliminar Beneficio</li>
+                        <li class="breadcrumb-item"><a href="#">Asignaciones</a></li>
+                        <li class="breadcrumb-item active">Eliminar Asignación</li>
                     </ol>
                 </div>
                 <!-- /.col -->
@@ -32,21 +32,21 @@
                 <div class="card card-danger">
 
                     <div class="card-header">
-                        <h3 class="card-title">Beneficios</h3>
+                        <h3 class="card-title">Asignaciones</h3>
                     </div>
 
                     <div class="card-body">
 
-                        <form asp-controller="Beneficios" asp-action="Eliminar">
+                        <form asp-controller="Asignaciones" asp-action="Eliminar">
                             <input asp-for="IdBeneficio" type="hidden" class="form-control">
 
                             <div class="alert alert-danger alert-dismissible col-md-4">
                                 <h5><i class="icon fas fa-ban"></i>Advertencia</h5>
-                                ¿Está seguro de eliminar el beneficio?
+                                ¿Está seguro de eliminar la asignación?
                             </div>
 
                             <button type="submit" class="btn btn-danger">Eliminar</button>
-                            <a class="btn btn-secondary" asp-controller="Beneficios" asp-action="Listar">Cancelar </a>
+                            <a class="btn btn-secondary" asp-controller="Asignaciones" asp-action="Listar">Cancelar </a>
                         </form>
                     </div>
                 </div>
