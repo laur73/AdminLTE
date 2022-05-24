@@ -29,7 +29,7 @@ namespace AdminLTE.Models
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [DataType(DataType.Date)]
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
          
         public string Habitante { get; set; }
         public string Apoyo { get; set; }

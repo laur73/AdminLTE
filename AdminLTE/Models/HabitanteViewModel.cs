@@ -28,7 +28,7 @@ namespace AdminLTE.Models
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [Display(Name = "Fecha Nacimiento")]
         [DataType(DataType.Date)]
-        public DateTime FechaNac { get; set; }
+        public DateTime FechaNac { get; set; } = DateTime.Now;
 
         [StringLength(maximumLength: 6)]
         [Required(ErrorMessage = "El campo {0} es requerido")]
